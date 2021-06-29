@@ -1,4 +1,6 @@
 ﻿using Blazored.LocalStorage;
+using Bunit.Extensions;
+using Castle.Core.Internal;
 using Microsoft.AspNetCore.Components.Authorization;
 using System;
 using System.Collections.Generic;
@@ -21,7 +23,7 @@ namespace FashionizerProject.Client
         {
             var state = new AuthenticationState(new ClaimsPrincipal());
 
-            string username = await _localStorage.GetItemAsStringAsync("username");
+            string username =  await _localStorage.GetItemAsStringAsync("username");
             if (!string.IsNullOrEmpty(username))
             {
                 var identity = new ClaimsIdentity(new[]
